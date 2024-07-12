@@ -49,6 +49,7 @@ public:
     const int refreshView = -1;
     int searchAtDepth = 0;
     Environment env;
+    Node *goalNode = nullptr;
 
     void getDirection(Node *node1, Node *node2, Node *direction);
 
@@ -109,6 +110,8 @@ private:
     std::vector<Node *> getPath(Node *goal);
 
     void visualize(const std::vector<Node *> &tree, Node *goal, bool finished = false);
+
+    void generateBezierCurve(octomap::point3d p0, octomap::point3d p1, octomap::point3d p2, std::vector<Node *> &bezier, int density);
 
     int iter = 0;
 };

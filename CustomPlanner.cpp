@@ -8,9 +8,8 @@
 #include "CustomPlanner.h"
 
 namespace ompl {
-    CustomPlanner::CustomPlanner(const base::SpaceInformationPtr &si, std::shared_ptr<Environment> &env, bool optimize)
-            : base::Planner(si,
-                            std::string("customPlanner").append(optimize ? "WithOptimization" : "")) {
+    CustomPlanner::CustomPlanner(const base::SpaceInformationPtr &si, std::shared_ptr <Environment> &env, bool optimize)
+            : base::Planner(si, std::string("Custom").append(optimize ? "Opt" : "")) {
         // Set default values for the parameters
         specs_.optimizingPaths = true;
         specs_.recognizedGoal = base::GOAL_STATE;
@@ -23,7 +22,6 @@ namespace ompl {
 
     CustomPlanner::~CustomPlanner() {
         std::cout << "Destructor called" << std::endl;
-//        delete this;
     }
 
     base::PlannerStatus CustomPlanner::solve(const base::PlannerTerminationCondition &ptc) {
@@ -41,7 +39,7 @@ namespace ompl {
                        startState->as<base::RealVectorStateSpace::StateType>()->values[2],
                        nullptr, 0};
 
-        std::shared_ptr<StoppableThread> stoppableThreadPtr = std::make_shared<StoppableThread>();
+        std::shared_ptr <StoppableThread> stoppableThreadPtr = std::make_shared<StoppableThread>();
         if (optimize) {
             rrtStar.MAX_OPTIMIZING_ITERATIONS = 100 * 1000;
             // Your RRT* algorithm starts here

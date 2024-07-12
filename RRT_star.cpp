@@ -90,10 +90,9 @@ std::vector<Node *> RRTStar::nearestNodesInTree(std::vector<Node *> &tree, Node 
         }
     }
 
-    if (nearestNodes.empty()) {
-        return nearestNodes;
+    if (!nearestNodes.empty()) {
+        std::rotate(nearestNodes.begin(), nearestNodes.begin() + static_cast<int>(nNodeIndex), nearestNodes.end());
     }
-    std::rotate(nearestNodes.begin(), nearestNodes.begin() + static_cast<int>(nNodeIndex), nearestNodes.end());
     return nearestNodes;
 }
 
@@ -240,6 +239,15 @@ bool RRTStar::checkLinkCollisionWithDistMap(Node *node1, Node *node2) {
 
 void RRTStar::recalculateCostOfChildren(Node *node, double delta) {
     for (Node *child: node->children) {
+
+        if (child == goalNode) {
+            if (goalNode->cost > child->cost + delta) {
+                goalNode->parent = node;
+            } else {
+                continue;
+            }
+        }
+
         child->cost += delta;
         recalculateCostOfChildren(child, delta);
     }
@@ -381,6 +389,13 @@ void RRTStar::connectToGoal(Node *lastNode, Node *goal) {
     // Calculate the cost of the goal node
     double goalCost = lastNode->cost + distance(lastNode, goal);
 
+    // Remove goal node from the parent children list, if it has a parent
+//    if (goal->parent != nullptr) {
+//        goal->parent->children.erase(std::remove(goal->parent->children.begin(), goal->parent->children.end(), goal),
+//                                     goal->parent->children.end());
+//    }
+
+    lastNode->children.push_back(goal);
     // Update the goal node to point to the new goal node
     goal->parent = lastNode;
     goal->cost = goalCost;
@@ -459,6 +474,7 @@ void RRTStar::visualize(const std::vector<Node *> &tree, Node *goal, bool finish
 
 std::vector<Node *> RRTStar::rrtStar(Node *start, Node *goal, Environment &env) {
     auto start_ts = std::chrono::high_resolution_clock::now();
+    goalNode = goal;
 
     // Initialize the tree with the start node
     std::vector<Node *> tree;
@@ -510,16 +526,10 @@ FinalReturn
 RRTStar::rrtStar(Node *start, Node *goal, Environment &environment, double stayAwayDesired,
                  void (*pathFoundCallback)(ReturnPath *, websocketpp::connection_hdl), websocketpp::connection_hdl hdl,
                  const std::shared_ptr<StoppableThread> &stoppableThreadPtr) {
+    goalNode = goal;
     env = environment;
     stayAway = stayAwayDesired;
     safeStayAway = stayAwayDesired / cos(M_PI / 6);
-//        int depth = env.tree->getTreeDepth();
-//        double resolution = env.tree->getResolution();
-//        if (stayAway > resolution) {
-//            searchAtDepth = depth - ceil(log2(stayAway / resolution));
-//        }
-
-    // Initialize the tree with the start node
     std::vector<Node *> tree;
     tree.reserve(MAX_OPTIMIZING_ITERATIONS);
     tree.push_back(start);
@@ -532,7 +542,6 @@ RRTStar::rrtStar(Node *start, Node *goal, Environment &environment, double stayA
            !stoppableThreadPtr->isStopRequested()) {
         // Sample a random point in the environment
         Node *randomNode = sampleRandomNode(goal);
-//        Node *randomNode = sampleRandomNode();
         // Find the nearest node in the tree to the random point
         Node *nearestNode = nearestNodeInTree(tree, randomNode);
         // Extend the tree towards the random point
@@ -554,32 +563,17 @@ RRTStar::rrtStar(Node *start, Node *goal, Environment &environment, double stayA
                         std::chrono::high_resolution_clock::now() - start_ts).count()};
                 pathFoundCallback(&returnPath, hdl);
             }
-//            std::cout << "Path found with " << path.size() << " nodes" << std::endl;
-//
-//            if (!finish){
-//                finish = true;
-//                auto stop_ts = std::chrono::high_resolution_clock::now();
-//                auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop_ts - start_ts);
-//                std::cout << "First contact iteration: " << iter << " Time: " << duration.count() << " microseconds" << std::endl;
-//            }
             finish = true;
         }
+
         if (finish) {
             iteration_after_finish++;
-        }
-        if (refreshView!= -1 && iter % refreshView == 0) {
-            auto stop_ts = std::chrono::high_resolution_clock::now();
-            auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop_ts - start_ts);
-            std::cout << "Iteration: " << iter << " Time: " << duration.count() << " microseconds | " << finish
-                      << " -> after finish " << iteration_after_finish << std::endl;
         }
         iter++;
     }
     std::shared_ptr<std::vector<Node *>> retPath = std::make_shared<std::vector<Node *>>(getPath(goal));
     if (stoppableThreadPtr->isStopRequested()) {
-//        std::cout << "Thread stopped" << std::endl;
         if (!finish) {
-            //clear the path
             retPath->clear();
             return FinalReturn{std::move(retPath), std::chrono::duration_cast<std::chrono::microseconds>(
                     std::chrono::high_resolution_clock::now() - start_ts).count(), tree.size()};
@@ -612,9 +606,27 @@ void RRTStar::pathPruning(std::shared_ptr<std::vector<Node *>> &path){
     }
 }
 
+void RRTStar::generateBezierCurve(
+        octomap::point3d p0, octomap::point3d p1, octomap::point3d p2,
+        std::vector<Node *> &bezier, int density){
+    for (float j = 0; j < 1; j += 1.0 / density) {
+        Node *newNode = new Node();
+        newNode->x = (1 - j) * (1 - j) * p0.x() + 2 * (1 - j) * j * p1.x() + j * j * p2.x();
+        newNode->y = (1 - j) * (1 - j) * p0.y() + 2 * (1 - j) * j * p1.y() + j * j * p2.y();
+        newNode->z = (1 - j) * (1 - j) * p0.z() + 2 * (1 - j) * j * p1.z() + j * j * p2.z();
+        bezier.push_back(newNode);
+
+        auto newNodePt = octomap::point3d(newNode->x, newNode->y, newNode->z);
+        if (env.distmap->getDistance(newNodePt) < stayAway) {
+            break; // Collision detected
+        }
+    }
+}
+
+// 3D Quadradic Bezier curve
 void RRTStar::pathSmoothing(std::shared_ptr<std::vector<Node *>> &path, float percent, int density) {
-    // 3D Quadradic Bezier curve
-    for (int i = 0; i < path->size() - 2; i+=density) {
+    int count;
+    for (int i = 0; i < path->size() - 2; i += count) {
         octomap::point3d p0 = octomap::point3d(path->at(i)->x, path->at(i)->y, path->at(i)->z);
         octomap::point3d p1 = octomap::point3d(path->at(i + 1)->x, path->at(i + 1)->y, path->at(i + 1)->z);
         octomap::point3d p2 = octomap::point3d(path->at(i + 2)->x, path->at(i + 2)->y, path->at(i + 2)->z);
@@ -623,17 +635,25 @@ void RRTStar::pathSmoothing(std::shared_ptr<std::vector<Node *>> &path, float pe
         double dist2 = p2.distance(p1);
         vers1 = (p1 - p0) * (1.0 / dist1);
         vers2 = (p2 - p1) * (1.0 / dist2);
-        p0 = p1 - vers1 * dist1 * percent;
-        p2 = p1 + vers2 * dist2 * percent;
-        path->erase(path->begin() + i + 1);
-        int count = 0;
-        for (float j = 0; j < 1; j += 1.0 / density) {
-            count++;
-            Node *newNode = new Node();
-            newNode->x = (1 - j) * (1 - j) * p0.x() + 2 * (1 - j) * j * p1.x() + j * j * p2.x();
-            newNode->y = (1 - j) * (1 - j) * p0.y() + 2 * (1 - j) * j * p1.y() + j * j * p2.y();
-            newNode->z = (1 - j) * (1 - j) * p0.z() + 2 * (1 - j) * j * p1.z() + j * j * p2.z();
-            path->insert(path->begin() + i + count, newNode);
+        bool collision = true;
+        while (collision) {
+            p0 = p1 - vers1 * dist1 * percent;
+            p2 = p1 + vers2 * dist2 * percent;
+            count = 0;
+            std::vector<Node *> bezier;
+            generateBezierCurve(p0, p1, p2, bezier, density);
+            if (bezier.size() == density) {
+                count = bezier.size();
+                path->erase(path->begin() + i + 1);
+                path->insert(path->begin() + i + 1, bezier.begin(), bezier.end());
+                collision = false;
+            } else {
+                percent /= 2;
+                density /= sqrt(2);
+                if (percent < 0.05 || density < 2) {
+                    break;
+                }
+            }
         }
     }
 }

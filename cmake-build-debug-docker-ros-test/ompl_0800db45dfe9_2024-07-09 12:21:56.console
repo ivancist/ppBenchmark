@@ -1,0 +1,189 @@
+Info:    Beginning benchmark
+Info:    Preparing for run 0 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 22.45 in 226 iterations (34 vertices in the graph)
+Info:    RRTstar: Created 21358 new states. Checked 12183164 rewire options. 1 goal states in tree. Final solution cost 18.689
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000309 seconds and changed from 10 to 6 states
+Info:    Preparing for run 1 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 21.43 in 529 iterations (161 vertices in the graph)
+Info:    RRTstar: Created 19679 new states. Checked 11118947 rewire options. 1 goal states in tree. Final solution cost 18.679
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000277 seconds and changed from 12 to 7 states
+Info:    Preparing for run 2 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 20.63 in 600 iterations (168 vertices in the graph)
+Info:    RRTstar: Created 19502 new states. Checked 11007260 rewire options. 1 goal states in tree. Final solution cost 18.648
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000324 seconds and changed from 9 to 5 states
+Info:    Preparing for run 3 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 20.83 in 1495 iterations (525 vertices in the graph)
+Info:    RRTstar: Created 19771 new states. Checked 11177000 rewire options. 1 goal states in tree. Final solution cost 18.682
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000258 seconds and changed from 10 to 8 states
+Info:    Preparing for run 4 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 21.98 in 639 iterations (165 vertices in the graph)
+Info:    RRTstar: Created 21085 new states. Checked 12009536 rewire options. 1 goal states in tree. Final solution cost 18.675
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000351 seconds and changed from 10 to 7 states
+Info:    Preparing for run 5 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 20.07 in 1165 iterations (342 vertices in the graph)
+Info:    RRTstar: Created 21202 new states. Checked 12083948 rewire options. 1 goal states in tree. Final solution cost 18.642
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000325 seconds and changed from 10 to 8 states
+Info:    Preparing for run 6 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 20.22 in 306 iterations (72 vertices in the graph)
+Info:    RRTstar: Created 19427 new states. Checked 10959970 rewire options. 1 goal states in tree. Final solution cost 18.756
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000257 seconds and changed from 10 to 10 states
+Info:    Preparing for run 7 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 21.42 in 821 iterations (281 vertices in the graph)
+Info:    RRTstar: Created 21340 new states. Checked 12171716 rewire options. 1 goal states in tree. Final solution cost 18.649
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000278 seconds and changed from 8 to 6 states
+Info:    Preparing for run 8 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 21.37 in 117 iterations (32 vertices in the graph)
+Info:    RRTstar: Created 19601 new states. Checked 11069729 rewire options. 1 goal states in tree. Final solution cost 18.627
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000289 seconds and changed from 11 to 8 states
+Info:    Preparing for run 9 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 22.19 in 245 iterations (63 vertices in the graph)
+Info:    RRTstar: Created 19727 new states. Checked 11149235 rewire options. 1 goal states in tree. Final solution cost 18.787
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000336 seconds and changed from 10 to 8 states
+Info:    Preparing for run 10 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 21.26 in 76 iterations (21 vertices in the graph)
+Info:    RRTstar: Created 21259 new states. Checked 12120200 rewire options. 1 goal states in tree. Final solution cost 18.683
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000346 seconds and changed from 11 to 10 states
+Info:    Preparing for run 11 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 22.16 in 238 iterations (49 vertices in the graph)
+Info:    RRTstar: Created 21216 new states. Checked 12092852 rewire options. 1 goal states in tree. Final solution cost 18.665
+Info:    SimpleSetup: Path simplification took 0.000140 seconds and changed from 11 to 8 states
+Info:    Preparing for run 12 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 21.97 in 33 iterations (13 vertices in the graph)
+Info:    RRTstar: Created 20793 new states. Checked 11824080 rewire options. 1 goal states in tree. Final solution cost 18.776
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000293 seconds and changed from 8 to 6 states
+Info:    Preparing for run 13 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 22.45 in 134 iterations (28 vertices in the graph)
+Info:    RRTstar: Created 18054 new states. Checked 10097631 rewire options. 1 goal states in tree. Final solution cost 18.702
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000331 seconds and changed from 9 to 7 states
+Info:    Preparing for run 14 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 20.26 in 472 iterations (145 vertices in the graph)
+Info:    RRTstar: Created 18771 new states. Checked 10547168 rewire options. 1 goal states in tree. Final solution cost 18.790
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000326 seconds and changed from 12 to 7 states
+Info:    Preparing for run 15 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 21.93 in 50 iterations (18 vertices in the graph)
+Info:    RRTstar: Created 19622 new states. Checked 11082980 rewire options. 1 goal states in tree. Final solution cost 18.837
+Info:    SimpleSetup: Path simplification took 0.000196 seconds and changed from 12 to 8 states
+Info:    Preparing for run 16 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 23.23 in 1408 iterations (521 vertices in the graph)
+Info:    RRTstar: Created 21200 new states. Checked 12082676 rewire options. 1 goal states in tree. Final solution cost 18.677
+Info:    SimpleSetup: Path simplification took 0.000143 seconds and changed from 13 to 6 states
+Info:    Preparing for run 17 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 22.39 in 795 iterations (254 vertices in the graph)
+Info:    RRTstar: Created 21043 new states. Checked 11982830 rewire options. 1 goal states in tree. Final solution cost 18.819
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000370 seconds and changed from 10 to 6 states
+Info:    Preparing for run 18 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 22.27 in 685 iterations (214 vertices in the graph)
+Info:    RRTstar: Created 19402 new states. Checked 10944220 rewire options. 1 goal states in tree. Final solution cost 18.843
+Info:    SimpleSetup: Path simplification took 0.000123 seconds and changed from 11 to 7 states
+Info:    Preparing for run 19 of geometric_RRTstar
+Info:    RRTstar: Started planning with 1 states. Seeking a solution better than 0.00000.
+Info:    RRTstar: Initial k-nearest value of 45
+Info:    RRTstar: Found an initial solution with a cost of 28.52 in 465 iterations (108 vertices in the graph)
+Info:    RRTstar: Created 21084 new states. Checked 12008900 rewire options. 1 goal states in tree. Final solution cost 18.819
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000396 seconds and changed from 11 to 7 states
+Info:    Preparing for run 0 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000424 seconds and changed from 5 to 5 states
+Info:    Preparing for run 1 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000378 seconds and changed from 6 to 5 states
+Info:    Preparing for run 2 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000171 seconds and changed from 8 to 6 states
+Info:    Preparing for run 3 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000076 seconds and changed from 4 to 4 states
+Info:    Preparing for run 4 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000346 seconds and changed from 5 to 5 states
+Info:    Preparing for run 5 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000469 seconds and changed from 8 to 7 states
+Info:    Preparing for run 6 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000079 seconds and changed from 4 to 5 states
+Info:    Preparing for run 7 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000427 seconds and changed from 7 to 7 states
+Info:    Preparing for run 8 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000506 seconds and changed from 8 to 6 states
+Info:    Preparing for run 9 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000428 seconds and changed from 8 to 6 states
+Info:    Preparing for run 10 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000161 seconds and changed from 5 to 8 states
+Info:    Preparing for run 11 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000092 seconds and changed from 5 to 5 states
+Info:    Preparing for run 12 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000195 seconds and changed from 7 to 7 states
+Info:    Preparing for run 13 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000463 seconds and changed from 6 to 6 states
+Info:    Preparing for run 14 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000123 seconds and changed from 4 to 5 states
+Info:    Preparing for run 15 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000468 seconds and changed from 9 to 7 states
+Info:    Preparing for run 16 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000097 seconds and changed from 5 to 6 states
+Info:    Preparing for run 17 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000375 seconds and changed from 8 to 6 states
+Info:    Preparing for run 18 of geometric_CustomOpt
+Info:    SimpleSetup: Path simplification took 0.000153 seconds and changed from 6 to 6 states
+Info:    Preparing for run 19 of geometric_CustomOpt
+Debug:   The solution path was slightly touching on an invalid region of the state space, but it was successfully fixed.
+Info:    SimpleSetup: Path simplification took 0.000476 seconds and changed from 7 to 6 states
+Info:    Benchmark complete

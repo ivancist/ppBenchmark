@@ -4,6 +4,8 @@
 #include "ompl/tools/benchmark/Benchmark.h"
 #include "ompl/geometric/planners/est/EST.h"
 #include "ompl/geometric/planners/rrt/RRT.h"
+#include "ompl/geometric/planners/prm/PRM.h"
+#include "ompl/geometric/planners/prm/PRMstar.h"
 #include "ompl/geometric/planners/sbl/SBL.h"
 #include "ompl/geometric/planners/kpiece/KPIECE1.h"
 #include "ompl/geometric/planners/kpiece/LBKPIECE1.h"
@@ -75,15 +77,19 @@ int main() {
     ompl::tools::Benchmark b(ss, "Benchmark");
 
 // We add the planners to evaluate.
-    b.addPlanner(base::PlannerPtr(new geometric::KPIECE1(ss.getSpaceInformation())));
-    b.addPlanner(base::PlannerPtr(new geometric::RRT(ss.getSpaceInformation())));
-    b.addPlanner(base::PlannerPtr(new geometric::SBL(ss.getSpaceInformation())));
-    b.addPlanner(base::PlannerPtr(new geometric::LBKPIECE1(ss.getSpaceInformation())));
-    b.addPlanner(base::PlannerPtr(new ompl::CustomPlanner(ss.getSpaceInformation(),env,false)));
-    b.addPlanner(base::PlannerPtr(new ompl::CustomPlanner(ss.getSpaceInformation(),env,true)));
+
+//    b.addPlanner(base::PlannerPtr(new geometric::PRM(ss.getSpaceInformation())));
+//    auto rrt = base::PlannerPtr(new geometric::RRT(ss.getSpaceInformation()));
+//    rrt->as<geometric::RRT>()->setGoalBias(0.2);
+//    b.addPlanner(rrt);
+//    b.addPlanner(base::PlannerPtr(new ompl::CustomPlanner(ss.getSpaceInformation(),env,false)));
+
     auto rrtstar = base::PlannerPtr(new geometric::RRTstar(ss.getSpaceInformation()));
     rrtstar->as<geometric::RRTstar>()->setGoalBias(0.2);
+    rrtstar->as<geometric::RRTstar>()->setFocusSearch(false);
+    rrtstar->as<geometric::RRTstar>()->setSampleRejection(false);
     b.addPlanner(rrtstar);
+    b.addPlanner(base::PlannerPtr(new ompl::CustomPlanner(ss.getSpaceInformation(),env,true)));
 
 //// For planners that we want to configure in specific ways,
 //// the ompl::base::PlannerAllocator should be used:
@@ -95,7 +101,7 @@ int main() {
 // and true means that a text-mode progress bar should be displayed while
 // computation is running.
     ompl::tools::Benchmark::Request req;
-    req.maxTime = 1.0;
+    req.maxTime = 2.0;
     req.maxMem = 100.0;
     req.runCount = 20;
     req.displayProgress = true;

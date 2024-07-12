@@ -1,3 +1,0 @@
-/tmp/ppBenchmark/cmake-build-debug-docker/CMakeFiles/ppBenchmark.dir
-/tmp/ppBenchmark/cmake-build-debug-docker/CMakeFiles/edit_cache.dir
-/tmp/ppBenchmark/cmake-build-debug-docker/CMakeFiles/rebuild_cache.dir
